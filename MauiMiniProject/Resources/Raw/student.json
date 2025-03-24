@@ -1,0 +1,186 @@
+[
+  {
+    "sid": 1,
+    "name": "Dokkung GONGGANK",
+    "email": "Dok@dok",
+    "password": "123",
+    "year": [
+      {
+        "year_number": "2025",
+        "courses_year": [
+          {
+            "Registered_term3": [
+              { "cid": "3" },
+              { "cid": "4" }
+            ],
+            "Registered_term2": [
+              { "cid": "1" },
+              { "cid": "5" }
+            ],
+            "Registered_term1": [
+              { "cid": "2" },
+              { "cid": "6" }
+            ]
+          }
+        ]
+      },
+      {
+        "year_number": "2026",
+        "courses_year": [
+          {
+            "Registered_term3": [
+              { "cid": "7" },
+              { "cid": "8" }
+            ],
+            "Registered_term2": [
+              { "cid": "9" },
+              { "cid": "10" }
+            ],
+            "Registered_term1": [
+              { "cid": "11" },
+              { "cid": "12" }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "sid": 2,
+    "name": "Longgong Monggo",
+    "email": "Long@long",
+    "password": "222",
+    "year": [
+      {
+        "year_number": "2025",
+        "courses_year": [
+          {
+            "Registered_term3": [
+              { "cid": "3" },
+              { "cid": "4" }
+            ],
+            "Registered_term2": [
+              { "cid": "1" },
+              { "cid": "5" }
+            ],
+            "Registered_term1": [
+              { "cid": "2" },
+              { "cid": "6" }
+            ]
+          }
+        ]
+      },
+      {
+        "year_number": "2026",
+        "courses_year": [
+          {
+            "Registered_term3": [
+              { "cid": "7" },
+              { "cid": "8" }
+            ],
+            "Registered_term2": [
+              { "cid": "9" },
+              { "cid": "10" }
+            ],
+            "Registered_term1": [
+              { "cid": "11" },
+              { "cid": "12" }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "sid": 3,
+    "name": "Freddy Poppy",
+    "email": "Pop@pop",
+    "password": "333",
+    "year": [
+      {
+        "year_number": "2025",
+        "courses_year": [
+          {
+            "Registered_term3": [
+              { "cid": "3" },
+              { "cid": "4" }
+            ],
+            "Registered_term2": [
+              { "cid": "1" },
+              { "cid": "5" }
+            ],
+            "Registered_term1": [
+              { "cid": "2" },
+              { "cid": "6" }
+            ]
+          }
+        ]
+      },
+      {
+        "year_number": "2026",
+        "courses_year": [
+          {
+            "Registered_term3": [
+              { "cid": "7" },
+              { "cid": "8" }
+            ],
+            "Registered_term2": [
+              { "cid": "9" },
+              { "cid": "10" }
+            ],
+            "Registered_term1": [
+              { "cid": "11" },
+              { "cid": "12" }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "sid": 4,
+    "name": "Xavier Minom",
+    "email": "Min@min",
+    "password": "444",
+    "year": [
+      {
+        "year_number": "2025",
+        "courses_year": [
+          {
+            "Registered_term3": [
+              { "cid": "3" },
+              { "cid": "4" }
+            ],
+            "Registered_term2": [
+              { "cid": "1" },
+              { "cid": "5" }
+            ],
+            "Registered_term1": [
+              { "cid": "2" },
+              { "cid": "6" }
+            ]
+          }
+        ]
+      },
+      {
+        "year_number": "2026",
+        "courses_year": [
+          {
+            "Registered_term3": [
+              { "cid": "7" },
+              { "cid": "8" }
+            ],
+            "Registered_term2": [
+              { "cid": "9" },
+              { "cid": "10" }
+            ],
+            "Registered_term1": [
+              { "cid": "11" },
+              { "cid": "12" }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+]

@@ -1,30 +1,112 @@
-<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewmodel="clr-namespace:MauiMiniProject.ViewModel"
              x:Class="MauiMiniProject.Pages.HomePage"
-             Title="HomePage">
-    <VerticalStackLayout Spacing="25" Padding="30">
-        <Label 
-            Text="Welcome to .NET MAUI!"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" 
-            FontSize="24"/>
+             x:DataType="viewmodel:HomeViewModel" 
+             Shell.NavBarIsVisible="False">
 
-        <!-- Menu Buttons -->
-        <Button Text="Profile"
-                HorizontalOptions="Center"
-                Clicked="OnProfileButtonClicked"/>
+    <Grid Padding="0">
+        <Image Source="home2.jpg" Aspect="AspectFill" />
 
-        <Button Text="View Registered Courses"
-                HorizontalOptions="Center"
-                Clicked="OnRegisteredCoursesButtonClicked"/>
+        <!-- Header Section -->
+        <Grid BackgroundColor="Yellow"
+              HeightRequest="70"
+              VerticalOptions="Start"
+              Padding="10"
+              ColumnDefinitions="*, Auto">
+            <!-- Title (ในคอลัมน์แรก) -->
+            <Label Text="DOK UNIVERSITY"
+                   FontSize="24"
+                   FontAttributes="Bold"
+                   TextColor="Black"
+                   VerticalOptions="Center"
+                   HorizontalOptions="Start"
+                   Grid.Column="0"/>
 
-        <Button Text="Search for Courses"
-                HorizontalOptions="Center"
-                Clicked="OnSearchCoursesButtonClicked"/>
+            <!-- Profile Button (ในคอลัมน์ที่สอง) -->
+            <ImageButton Source="icon_login.png"
+                         WidthRequest="50"
+                         HeightRequest="50"
+                         BackgroundColor="Transparent"
+                         BorderWidth="0"
+                         HorizontalOptions="End"
+                         Command="{Binding NavigateToProfileCommand}"
+                         Grid.Column="1"/>
 
-        <Button Text="Withdraw from Course"
-                HorizontalOptions="Center"
-                Clicked="OnWithdrawCourseButtonClicked"/>
-    </VerticalStackLayout>
+            <!-- แสดงค่า SID (ในคอลัมน์แรก) -->
+            <Label Text="{Binding Name}" 
+                   FontSize="18"
+                   TextColor="Black"
+                   VerticalOptions="Center"
+                   HorizontalOptions="EndAndExpand"
+                   Margin="0,0,10,0"
+                   Grid.Column="0"/>
+        </Grid>
+
+        <!-- Main Content -->
+        <ScrollView Margin="0,70,0,0">
+            <Grid Padding="30"
+                  HorizontalOptions="FillAndExpand"
+                  VerticalOptions="FillAndExpand"
+                  ColumnDefinitions="*, *, *"
+                  RowDefinitions="Auto">
+
+                <!-- Card 1 -->
+                <Frame Padding="10"
+                       CornerRadius="10"
+                       HasShadow="True"
+                       HeightRequest="400"
+                       Grid.Column="0"
+                       Margin="5">
+                    <VerticalStackLayout>
+                        <Image Source="icon_viewcourses.png"
+                               WidthRequest="300"
+                               HeightRequest="300"/>
+                        <!-- ใช้ Command แทน Clicked -->
+                        <Button Text="View Courses"
+                                BackgroundColor="Green"
+                                Command="{Binding NavigateToViewCoursesCommand}" />
+                    </VerticalStackLayout>
+                </Frame>
+
+                <!-- Card 2 -->
+                <Frame Padding="10"
+                       CornerRadius="10"
+                       HasShadow="True"
+                       HeightRequest="400"
+                       Grid.Column="1"
+                       Margin="5">
+                    <VerticalStackLayout>
+                        <Image Source="icon_search.png"
+                               WidthRequest="300"
+                               HeightRequest="300"/>
+                        <!-- ใช้ Command แทน Clicked -->
+                        <Button Text="Search Courses"
+                                BackgroundColor="Blue"
+                                Command="{Binding NavigateToSearchCoursesCommand}" />
+                    </VerticalStackLayout>
+                </Frame>
+
+                <!-- Card 3 -->
+                <Frame Padding="10"
+                       CornerRadius="10"
+                       HasShadow="True"
+                       HeightRequest="400"
+                       Grid.Column="2"
+                       Margin="5">
+                    <VerticalStackLayout>
+                        <Image Source="icon_withdraw.png"
+                               WidthRequest="300"
+                               HeightRequest="300"/>
+                        <!-- ใช้ Command แทน Clicked -->
+                        <Button Text="Withdraw Courses"
+                                BackgroundColor="Red"
+                                Command="{Binding NavigateToWithdrawCourseCommand}" />
+                    </VerticalStackLayout>
+                </Frame>
+
+            </Grid>
+        </ScrollView>
+
+    </Grid>
 </ContentPage>

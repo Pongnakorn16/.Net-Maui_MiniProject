@@ -1,0 +1,30 @@
+[
+  {
+    "cid": 1,
+    "name": "Mathematics"
+  },
+  {
+    "cid": 2,
+    "name": "Physics"
+  },
+  {
+    "cid": 3,
+    "name": "Chemistry"
+  },
+  {
+    "cid": 4,
+    "name": "Biology"
+  },
+  {
+    "cid": 5,
+    "name": "Computer Science"
+  },
+  {
+    "cid": 6,
+    "name": "English Literature"
+  },
+  {
+    "cid": 7,
+    "name": "History"
+  }
+]

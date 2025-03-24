@@ -50,22 +50,14 @@
                                 CornerRadius="10"
                                 Command="{Binding LoginCommand}" />
 
-                        <StackLayout Orientation="Horizontal" Spacing="120" HorizontalOptions="Center">
-                            <!-- <Label Text="ลงทะเบียน"
-                                   TextColor="#007AFF">
-                                <Label.GestureRecognizers>
-                                    <TapGestureRecognizer Command="{Binding GoToPageCommand}"
-                                                          CommandParameter="{Binding Route}" />
-                                </Label.GestureRecognizers>
-                            </Label> -->
-
+                        <!-- <StackLayout Orientation="Horizontal" Spacing="120" HorizontalOptions="Center">
                             <Label Text="ลืมรหัสผ่าน?"
                                    TextColor="Red">
                                 <Label.GestureRecognizers>
                                     <TapGestureRecognizer Tapped="ForgetPasswordTapped" />
                                 </Label.GestureRecognizers>
                             </Label>
-                        </StackLayout>
+                        </StackLayout> -->
 
                         
                         <Label x:Name="ErrorMessageLabel"

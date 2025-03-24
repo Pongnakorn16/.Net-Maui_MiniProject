@@ -1,7 +1,10 @@
 using System;
+using System.Collections.ObjectModel;
 using CommunityToolkit.Mvvm.ComponentModel;
- using CommunityToolkit.Mvvm.Input;
+using CommunityToolkit.Mvvm.Input;
+using MauiMiniProject.Model;
 using MauiMiniProject.Pages;
+using MauiMiniProject.Services;
 
 
 namespace MauiMiniProject.ViewModel;
@@ -12,7 +15,7 @@ public partial class LoginViewModel : ObservableObject
     string email = "";
 
     [ObservableProperty]
-    
+
     string password = "";
 
     [ObservableProperty]
@@ -21,57 +24,75 @@ public partial class LoginViewModel : ObservableObject
     [ObservableProperty]
     bool isErrorVisible = false;
 
+    // [ObservableProperty]
+    // string register = nameof(RegisterPage);
+
+
     [ObservableProperty]
-    string register = nameof(RegisterPage);
-    
+    ObservableCollection<Student> students = new ObservableCollection<Student>();
+
+    async Task<List<Student>> ReadJsonAsync()
+    {
+        try
+        {
+            using var stream = await FileSystem.OpenAppPackageFileAsync("student.json");
+            using var reader = new StreamReader(stream);
+            var contents = await reader.ReadToEndAsync();
+            List<Student> student = Student.FromJson(contents);
+            return student;
+        }
+        catch (Exception ex)
+        {
+            System.Diagnostics.Debug.WriteLine(ex.Message);
+            return new List<Student>();
+        }
+    }
+
+    public LoginViewModel()
+    {
+        LoadDataAsync();
+    }
+
+    // LoadDataAsync
+    async Task LoadDataAsync()
+    {
+        var jsonUsers = await ReadJsonAsync();
+        // Convert to observable collection
+        Students = new ObservableCollection<Student>(jsonUsers);
+    }
+
     [RelayCommand]
     async Task Login()
     {
-        if (Email == "Dok@dok" && Password == "123")
+        if (Students == null || Students.Count == 0)
         {
-            
-            await GoToPage(nameof(HomePage));
-        }
-        else if (Email != "Dok@dok" && Password == "123")
-        {
-            
-            ErrorMessage = "Email ไม่ถูกต้อง";
+            ErrorMessage = "ไม่มีข้อมูลนักเรียน";
             IsErrorVisible = true;
+            return;
         }
-        else if (Email == "Dok@dok" && Password != "123")
+
+        
+        var user = Students.FirstOrDefault(s => s.Email == Email && s.Password == Password);
+
+        if (user != null)
+        {
+            var dataService = DependencyService.Get<Iservice>();
+            dataService.name = user.Name;
+            dataService.Sid = user.Sid;
+            await Shell.Current.GoToAsync(nameof(HomePage));
+        }
+        else
         {
             
-            ErrorMessage = "Password ไม่ถูกต้อง";
-            IsErrorVisible = true;
-        }
-        else if (Email != "Dok@dok" && Password != "123" && Email != "" && Password != "")
-        {
-            
-            ErrorMessage = "Email และ Password ไม่ถูกต้อง";
-            IsErrorVisible = true;
-        }
-        else if (Email == "" && Password != "")
-        {
-            
-            ErrorMessage = "โปรดใส่ Email";
-            IsErrorVisible = true;
-        }
-        else if (Email != "" && Password == "")
-        {
-            
-            ErrorMessage = "โปรดใส่ Password";
-            IsErrorVisible = true;
-        }
-        else if (Email == "" && Password == "")
-        {
-            
-            ErrorMessage = "โปรดใส่ข้อมูลก่อน";
+            ErrorMessage = "Email หรือ Password ไม่ถูกต้อง";
             IsErrorVisible = true;
         }
     }
 
+
     [RelayCommand]
-    async Task GoToPage(string page){
-      await Shell.Current.GoToAsync(page);
+    async Task GoToPage(string page)
+    {
+        await Shell.Current.GoToAsync(page);
     }
 }
