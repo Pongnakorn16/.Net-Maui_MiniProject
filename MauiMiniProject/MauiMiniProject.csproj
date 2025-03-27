@@ -69,7 +69,6 @@
 
 	<ItemGroup>
 	  <Folder Include="Resources\Images\Icons\" />
-	  <Folder Include="Resources\Images\Pictures\" />
 	</ItemGroup>
 
 </Project>

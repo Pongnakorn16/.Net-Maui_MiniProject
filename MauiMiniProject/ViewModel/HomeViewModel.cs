@@ -7,8 +7,6 @@ namespace MauiMiniProject.ViewModel;
 public partial class HomeViewModel : ObservableObject
 {
     private readonly Iservice _dataService;
-    [ObservableProperty]
-    string sid;
 
     [ObservableProperty]
     string name;
@@ -16,7 +14,6 @@ public partial class HomeViewModel : ObservableObject
     public HomeViewModel(Iservice dataService)
     {
         _dataService = dataService;
-        Sid = _dataService.Sid.ToString();
         Name = _dataService.name;
         NavigateToProfileCommand = new RelayCommand(NavigateToProfile);
         NavigateToViewCoursesCommand = new RelayCommand(NavigateToViewCourses);

@@ -29,6 +29,12 @@ namespace MauiMiniProject.Model
         [JsonProperty("password")]
         public string Password { get; set; }
 
+        [JsonProperty("phone")]
+        public string Phone { get; set; }
+
+        [JsonProperty("image")]
+        public string Image { get; set; }
+
         [JsonProperty("year")]
         public List<Year> Year { get; set; }
     }
@@ -64,5 +70,4 @@ namespace MauiMiniProject.Model
     {
         public static List<Student> FromJson(string json) => JsonConvert.DeserializeObject<List<Student>>(json, MauiMiniProject.Model.Converter.Settings);
     }
-
 }

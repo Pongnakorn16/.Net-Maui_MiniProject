@@ -45,8 +45,8 @@
                         <Button WidthRequest="250"
                                 HeightRequest="45"
                                 Text="เข้าสู่ระบบ"
-                                BackgroundColor="#007AFF"
-                                TextColor="White"
+                                BackgroundColor="#FFFFEE00"
+                                TextColor="Black"
                                 CornerRadius="10"
                                 Command="{Binding LoginCommand}" />
 

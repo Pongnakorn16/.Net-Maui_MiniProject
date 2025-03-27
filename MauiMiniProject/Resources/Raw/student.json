@@ -4,6 +4,8 @@
     "name": "Dokkung GONGGANK",
     "email": "Dok@dok",
     "password": "123",
+    "phone": "09997",
+    "image": "std1.jpg",
     "year": [
       {
         "year_number": "2025",
@@ -50,6 +52,8 @@
     "name": "Longgong Monggo",
     "email": "Long@long",
     "password": "222",
+    "phone": "08123",
+    "image": "std2.jpg",
     "year": [
       {
         "year_number": "2025",
@@ -96,6 +100,8 @@
     "name": "Freddy Poppy",
     "email": "Pop@pop",
     "password": "333",
+    "phone": "0833333",
+    "image": "std3.jpg",
     "year": [
       {
         "year_number": "2025",
@@ -142,6 +148,8 @@
     "name": "Xavier Minom",
     "email": "Min@min",
     "password": "444",
+    "phone": "087456",
+    "image": "std4.jpg",
     "year": [
       {
         "year_number": "2025",

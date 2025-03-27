@@ -33,7 +33,6 @@
                          Command="{Binding NavigateToProfileCommand}"
                          Grid.Column="1"/>
 
-            <!-- แสดงค่า SID (ในคอลัมน์แรก) -->
             <Label Text="{Binding Name}" 
                    FontSize="18"
                    TextColor="Black"
