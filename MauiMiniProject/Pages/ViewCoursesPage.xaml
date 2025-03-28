@@ -6,96 +6,104 @@
               x:DataType="viewmodel:ViewCoursesViewModel"
               Shell.NavBarIsVisible="False">
  
-     <Grid Padding="0">
-         <!-- กำหนดแถว -->
-         <Grid.RowDefinitions>
-             <RowDefinition Height="70"/> 
-             <RowDefinition Height="*"/>  
-         </Grid.RowDefinitions>
- 
-         <!-- Header Section -->
-         <Grid BackgroundColor="Yellow"
-               HeightRequest="70"
-               VerticalOptions="Start"
-               Padding="10"
-               ColumnDefinitions="*, Auto"
-               Grid.Row="0"> 
-             <Label Text="ข้อมูลการลงทะเบียนเรียน"
-                    FontSize="24"
-                    FontAttributes="Bold"
+    <Grid Padding="0">
+        <!-- กำหนดแถว -->
+        <Grid.RowDefinitions>
+            <RowDefinition Height="70"/> 
+            <RowDefinition Height="*"/>  
+        </Grid.RowDefinitions>
+
+        <!-- Header Section -->
+        <Grid BackgroundColor="#FFEB3B" 
+              HeightRequest="80"
+              VerticalOptions="Start"
+              Padding="15"
+              ColumnDefinitions="*, Auto"
+              Grid.Row="0"> 
+            <Label Text="ข้อมูลการลงทะเบียนเรียน"
+                   FontSize="26"
+                   FontAttributes="Bold"
+                   TextColor="Black"
+                   VerticalOptions="Center"
+                   HorizontalOptions="Center"
+                   LineBreakMode="WordWrap"
+                   Grid.Column="0"/>
+
+                    <Button WidthRequest="100"
+                    HeightRequest="45"
+                    Text="กลับ"
+                    BackgroundColor="Red"
                     TextColor="Black"
-                    VerticalOptions="Center"
-                    HorizontalOptions="Start"
-                    Grid.Column="0"/>
-         </Grid>
- 
-         <!-- Main Content -->
-         <ScrollView Grid.Row="1"> 
-             <VerticalStackLayout>
-                 <CollectionView ItemsSource="{Binding Students}">
-                     <CollectionView.ItemTemplate>
-                         <DataTemplate x:DataType="{x:Type model:Student}">
-                             <Border Padding="10">
-                                 <Border.GestureRecognizers>
-                                     <TapGestureRecognizer Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodel:ViewCoursesViewModel}}, Path=ClickCommand}"
+                    CornerRadius="10"
+                    Command="{Binding BackCommand}" 
+                    HorizontalOptions="Start"/>
+        </Grid>
+
+        <!-- Main Content -->
+        <ScrollView Grid.Row="1"> 
+            <VerticalStackLayout Padding="10" Spacing="15"> <!-- เพิ่ม Padding และ Spacing -->
+                <CollectionView ItemsSource="{Binding Students}">
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate x:DataType="{x:Type model:Student}">
+                            <Border Padding="15" BackgroundColor="#f5f5f5" Margin="0,5">
+                                <Border.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodel:ViewCoursesViewModel}}, Path=ClickCommand}"
                                                            CommandParameter="{Binding Sid}"/>
-                                 </Border.GestureRecognizers>
-                                 <VerticalStackLayout>
- 
-                                     <CollectionView ItemsSource="{Binding Year}">
-                                         <CollectionView.ItemTemplate>
-                                             <DataTemplate x:DataType="{x:Type model:Year}">
-                                                 <Border Padding="5" Margin="0,5">
-                                                     <VerticalStackLayout>
-                                                         <Label Text="{Binding YearNumber}" FontAttributes="Bold" FontSize="20" />
- 
-                                                         <CollectionView ItemsSource="{Binding CoursesYear}">
-                                                             <CollectionView.ItemTemplate>
-                                                                 <DataTemplate x:DataType="{x:Type model:CoursesYear}">
-                                                                     <Border Padding="5" Margin="0,5">
-                                                                         <VerticalStackLayout>
-                                                                             <Label Text="Term 1 Courses" FontAttributes="Italic" FontSize="16" />
-                                                                             <CollectionView ItemsSource="{Binding RegisteredTerm1}">
-                                                                                 <CollectionView.ItemTemplate>
-                                                                                     <DataTemplate x:DataType="{x:Type model:RegisteredTerm}">
-                                                                                         <Label Text="{Binding C_name}" />
-                                                                                     </DataTemplate>
-                                                                                 </CollectionView.ItemTemplate>
-                                                                             </CollectionView>
- 
-                                                                             <Label Text="Term 2 Courses" FontAttributes="Italic" FontSize="16" />
-                                                                             <CollectionView ItemsSource="{Binding RegisteredTerm2}">
-                                                                                 <CollectionView.ItemTemplate>
-                                                                                     <DataTemplate x:DataType="{x:Type model:RegisteredTerm}">
-                                                                                         <Label Text="{Binding C_name}" />
-                                                                                     </DataTemplate>
-                                                                                 </CollectionView.ItemTemplate>
-                                                                             </CollectionView>
- 
-                                                                             <Label Text="Term 3 Courses" FontAttributes="Italic" FontSize="16" />
-                                                                             <CollectionView ItemsSource="{Binding RegisteredTerm3}">
-                                                                                 <CollectionView.ItemTemplate>
-                                                                                     <DataTemplate x:DataType="{x:Type model:RegisteredTerm}">
-                                                                                         <Label Text="{Binding C_name}" />
-                                                                                     </DataTemplate>
-                                                                                 </CollectionView.ItemTemplate>
-                                                                             </CollectionView>
-                                                                         </VerticalStackLayout>
-                                                                     </Border>
-                                                                 </DataTemplate>
-                                                             </CollectionView.ItemTemplate>
-                                                         </CollectionView>
-                                                     </VerticalStackLayout>
-                                                 </Border>
-                                             </DataTemplate>
-                                         </CollectionView.ItemTemplate>
-                                     </CollectionView>
-                                 </VerticalStackLayout>
-                             </Border>
-                         </DataTemplate>
-                     </CollectionView.ItemTemplate>
-                 </CollectionView>
-             </VerticalStackLayout>
-         </ScrollView>
-     </Grid>
- </ContentPage> 
+                                </Border.GestureRecognizers>
+                                <VerticalStackLayout Spacing="10">
+                                    <CollectionView ItemsSource="{Binding Year}">
+                                        <CollectionView.ItemTemplate>
+                                            <DataTemplate x:DataType="{x:Type model:Year}">
+                                                <Border Padding="10" Margin="0,5" BackgroundColor="#e0e0e0" >
+                                                    <VerticalStackLayout Spacing="8">
+                                                        <Label Text="{Binding YearNumber}" FontAttributes="Bold" FontSize="22" />
+                                                        <CollectionView ItemsSource="{Binding CoursesYear}">
+                                                            <CollectionView.ItemTemplate>
+                                                                <DataTemplate x:DataType="{x:Type model:CoursesYear}">
+                                                                    <Border Padding="10" Margin="0,5" BackgroundColor="#ffffff" >
+                                                                        <VerticalStackLayout Spacing="8">
+                                                                            <Label Text="Term 1 Courses" FontAttributes="Italic" FontSize="18" />
+                                                                            <CollectionView ItemsSource="{Binding RegisteredTerm1}">
+                                                                                <CollectionView.ItemTemplate>
+                                                                                    <DataTemplate x:DataType="{x:Type model:RegisteredTerm}">
+                                                                                        <Label Text="{Binding C_name}" FontSize="16" />
+                                                                                    </DataTemplate>
+                                                                                </CollectionView.ItemTemplate>
+                                                                            </CollectionView>
+
+                                                                            <Label Text="Term 2 Courses" FontAttributes="Italic" FontSize="18" />
+                                                                            <CollectionView ItemsSource="{Binding RegisteredTerm2}">
+                                                                                <CollectionView.ItemTemplate>
+                                                                                    <DataTemplate x:DataType="{x:Type model:RegisteredTerm}">
+                                                                                        <Label Text="{Binding C_name}" FontSize="16" />
+                                                                                    </DataTemplate>
+                                                                                </CollectionView.ItemTemplate>
+                                                                            </CollectionView>
+
+                                                                            <Label Text="Term 3 Courses" FontAttributes="Italic" FontSize="18" />
+                                                                            <CollectionView ItemsSource="{Binding RegisteredTerm3}">
+                                                                                <CollectionView.ItemTemplate>
+                                                                                    <DataTemplate x:DataType="{x:Type model:RegisteredTerm}">
+                                                                                        <Label Text="{Binding C_name}" FontSize="16" />
+                                                                                    </DataTemplate>
+                                                                                </CollectionView.ItemTemplate>
+                                                                            </CollectionView>
+                                                                        </VerticalStackLayout>
+                                                                    </Border>
+                                                                </DataTemplate>
+                                                            </CollectionView.ItemTemplate>
+                                                        </CollectionView>
+                                                    </VerticalStackLayout>
+                                                </Border>
+                                            </DataTemplate>
+                                        </CollectionView.ItemTemplate>
+                                    </CollectionView>
+                                </VerticalStackLayout>
+                            </Border>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+            </VerticalStackLayout>
+        </ScrollView>
+    </Grid>
+</ContentPage>
