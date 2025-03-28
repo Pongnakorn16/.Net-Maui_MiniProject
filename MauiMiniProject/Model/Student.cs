@@ -10,7 +10,6 @@ namespace MauiMiniProject.Model
 {
     using System;
     using System.Collections.Generic;
-
     using System.Globalization;
     using Newtonsoft.Json;
     using Newtonsoft.Json.Converters;
@@ -64,6 +63,9 @@ namespace MauiMiniProject.Model
     {
         [JsonProperty("cid")]
         public string Cid { get; set; }
+
+        // ✅ เพิ่ม Property 'Term'
+        public int Term { get; set; }
     }
 
     public partial class Student

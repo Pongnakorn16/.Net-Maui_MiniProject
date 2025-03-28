@@ -17,27 +17,41 @@ public partial class ViewCoursesViewModel : ObservableObject
     // Constructor
     public ViewCoursesViewModel(Iservice dataService)
     {
+        System.Diagnostics.Debug.WriteLine($"[DEBUG] SID เช็ค: {dataService.Sid}");
         _dataService = dataService;  // รับค่า IDataService
         LoadDataAsync();
     }
 
     // ReadJsonAsync
     async Task<List<Student>> ReadJsonAsync()
+{
+    try
     {
-        try
+        // ดึงเส้นทางของไฟล์จาก AppDataDirectory
+        var filePath = Path.Combine(FileSystem.AppDataDirectory, "student.json");
+        
+        // ตรวจสอบว่าไฟล์มีอยู่หรือไม่
+        if (File.Exists(filePath))
         {
-            using var stream = await FileSystem.OpenAppPackageFileAsync("student.json");
+            using var stream = File.OpenRead(filePath);
             using var reader = new StreamReader(stream);
             var contents = await reader.ReadToEndAsync();
             List<Student> students = Student.FromJson(contents);
             return students;
         }
-        catch (Exception ex)
+        else
         {
-            System.Diagnostics.Debug.WriteLine(ex.Message);
+            System.Diagnostics.Debug.WriteLine("ไฟล์ student.json ไม่พบใน AppDataDirectory");
             return new List<Student>();
         }
     }
+    catch (Exception ex)
+    {
+        System.Diagnostics.Debug.WriteLine($"เกิดข้อผิดพลาด: {ex.Message}");
+        return new List<Student>();
+    }
+}
+
 
     // LoadDataAsync
     async Task LoadDataAsync()

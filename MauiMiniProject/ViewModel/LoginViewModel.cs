@@ -71,7 +71,7 @@ public partial class LoginViewModel : ObservableObject
             return;
         }
 
-        
+
         var user = Students.FirstOrDefault(s => s.Email == Email && s.Password == Password);
 
         if (user != null)
@@ -79,11 +79,12 @@ public partial class LoginViewModel : ObservableObject
             var dataService = DependencyService.Get<Iservice>();
             dataService.name = user.Name;
             dataService.Sid = user.Sid;
+            System.Diagnostics.Debug.WriteLine($"[DEBUG] SID เช็ค: {dataService.Sid}");
             await Shell.Current.GoToAsync(nameof(HomePage));
         }
         else
         {
-            
+
             ErrorMessage = "Email หรือ Password ไม่ถูกต้อง";
             IsErrorVisible = true;
         }

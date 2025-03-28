@@ -13,6 +13,7 @@ public partial class HomeViewModel : ObservableObject
 
     public HomeViewModel(Iservice dataService)
     {
+        System.Diagnostics.Debug.WriteLine($"[DEBUG] SID เช็ค: {dataService.Sid}");
         _dataService = dataService;
         Name = _dataService.name;
         NavigateToProfileCommand = new RelayCommand(NavigateToProfile);

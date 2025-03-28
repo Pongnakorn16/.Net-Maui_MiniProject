@@ -52,6 +52,7 @@
 		<MauiImage Include="Resources\Images\*" />
 		<MauiImage Include="Resources\Images\Pictures\*" />
 		<MauiImage Include="Resources\Images\Icons\*" />
+		<MauiAsset Include="Resources\Raw\student.json" />
 
 		<!-- Custom Fonts -->
 		<MauiFont Include="Resources\Fonts\*" />

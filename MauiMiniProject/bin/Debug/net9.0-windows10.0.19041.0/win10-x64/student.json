@@ -25,25 +25,6 @@
             ]
           }
         ]
-      },
-      {
-        "year_number": "2026",
-        "courses_year": [
-          {
-            "Registered_term3": [
-              { "cid": "7" },
-              { "cid": "8" }
-            ],
-            "Registered_term2": [
-              { "cid": "9" },
-              { "cid": "10" }
-            ],
-            "Registered_term1": [
-              { "cid": "11" },
-              { "cid": "12" }
-            ]
-          }
-        ]
       }
     ]
   },
@@ -121,25 +102,6 @@
             ]
           }
         ]
-      },
-      {
-        "year_number": "2026",
-        "courses_year": [
-          {
-            "Registered_term3": [
-              { "cid": "7" },
-              { "cid": "8" }
-            ],
-            "Registered_term2": [
-              { "cid": "9" },
-              { "cid": "10" }
-            ],
-            "Registered_term1": [
-              { "cid": "11" },
-              { "cid": "12" }
-            ]
-          }
-        ]
       }
     ]
   },
@@ -166,25 +128,6 @@
             "Registered_term1": [
               { "cid": "2" },
               { "cid": "6" }
-            ]
-          }
-        ]
-      },
-      {
-        "year_number": "2026",
-        "courses_year": [
-          {
-            "Registered_term3": [
-              { "cid": "7" },
-              { "cid": "8" }
-            ],
-            "Registered_term2": [
-              { "cid": "9" },
-              { "cid": "10" }
-            ],
-            "Registered_term1": [
-              { "cid": "11" },
-              { "cid": "12" }
             ]
           }
         ]

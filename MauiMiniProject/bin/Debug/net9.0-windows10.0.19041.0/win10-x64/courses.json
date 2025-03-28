@@ -26,5 +26,9 @@
   {
     "cid": 7,
     "name": "History"
+  },
+  {
+    "cid": 8,
+    "name": "Laws"
   }
 ]

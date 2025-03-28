@@ -1,12 +1,58 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewmodel="clr-namespace:MauiMiniProject.ViewModel"
+             xmlns:model="clr-namespace:MauiMiniProject.Model"
              x:Class="MauiMiniProject.Pages.SearchCoursesPage"
-             Title="SearchCoursesPage">
-    <VerticalStackLayout>
-        <Label 
-            Text="Welcome to .NET MAUI!"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
-    </VerticalStackLayout>
+             Shell.NavBarIsVisible="False"
+             Title="Search Courses">
+
+    <!-- ห่อหุ้มเนื้อหาด้วย ScrollView -->
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="10">
+
+            <!-- ช่องกรอกข้อความสำหรับค้นหา -->
+            <Entry Placeholder="ค้นหาวิชา..." 
+                   Text="{Binding C_name, Mode=TwoWay}" 
+                   FontSize="18" />
+
+            <!-- ปุ่มกดเพื่อค้นหา -->
+            <Button Text="ค้นหา"
+                    Command="{Binding SearchCommand}" 
+                    IsEnabled="True" 
+                    BackgroundColor ="#FF006EFF"/>
+
+            <!-- แสดงรายการวิชา -->
+            <ListView ItemsSource="{Binding Searchcourse}" HasUnevenRows="True">
+                <ListView.ItemTemplate>
+                    <DataTemplate x:DataType="model:Courses">
+                        <ViewCell>
+                            <StackLayout Orientation="Horizontal" Padding="10">
+                                <!-- ชื่อวิชาชิดซ้าย -->
+                                <Label Text="{Binding Name}" FontSize="20" HorizontalOptions="StartAndExpand" VerticalOptions="Center" />
+                                
+                                <!-- ปุ่มลงทะเบียนชิดขวา -->
+                                <Button Text="ลงทะเบียน" 
+                                        Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodel:SearchViewModel}}, Path=RegisterCommand}"
+                                        CommandParameter="{Binding .}" 
+                                        HorizontalOptions="End" 
+                                        VerticalOptions="Center"
+                                        TextColor="White" 
+                                        BackgroundColor="#FF12A404" />
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+
+            <!-- แสดงข้อความผิดพลาด -->
+            <Label TextColor="Red"
+                   HorizontalOptions="Center"
+                   IsVisible="{Binding IsErrorVisible}"
+                   Text="{Binding ErrorMessage}" 
+                   FontSize="16" />
+
+        </VerticalStackLayout>
+    </ScrollView>
+
 </ContentPage>

@@ -13,6 +13,7 @@ public partial class ProfileViewModel : ObservableObject
     // Constructor
     public ProfileViewModel(Iservice dataService)
     {
+        System.Diagnostics.Debug.WriteLine($"[DEBUG] SID เช็ค: {dataService.Sid}");
         _dataService = dataService;
         LoadDataStudent();
     }

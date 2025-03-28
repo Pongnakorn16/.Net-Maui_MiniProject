@@ -4,6 +4,10 @@ obj\Debug\net9.0-android\resizetizer\r\drawable\icon_search.png
 obj\Debug\net9.0-android\resizetizer\r\drawable\icon_viewcourses.png
 obj\Debug\net9.0-android\resizetizer\r\drawable\icon_withdraw.png
 obj\Debug\net9.0-android\resizetizer\r\drawable\login.jpg
+obj\Debug\net9.0-android\resizetizer\r\drawable\std1.jpg
+obj\Debug\net9.0-android\resizetizer\r\drawable\std2.jpg
+obj\Debug\net9.0-android\resizetizer\r\drawable\std3.jpg
+obj\Debug\net9.0-android\resizetizer\r\drawable\std4.jpg
 obj\Debug\net9.0-android\resizetizer\r\mipmap-anydpi-v26\appicon.xml
 obj\Debug\net9.0-android\resizetizer\r\mipmap-anydpi-v26\appicon_round.xml
 obj\Debug\net9.0-android\resizetizer\r\mipmap-hdpi\appicon.png
