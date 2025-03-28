@@ -2,11 +2,145 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="MauiMiniProject.Pages.WithdrawCoursePage"
-             Title="WithdrawCoursePage">
-    <VerticalStackLayout>
-        <Label 
-            Text="Welcome to .NET MAUI!"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
-    </VerticalStackLayout>
+             xmlns:viewmodel="clr-namespace:MauiMiniProject.ViewModel"
+             xmlns:model="clr-namespace:MauiMiniProject.Model"
+             x:DataType="viewmodel:WithdrawViewModel"
+             Title="WithdrawCoursePage"
+             Shell.NavBarIsVisible="False">
+
+    <Grid Padding="0">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="70"/> 
+            <RowDefinition Height="*"/>  
+        </Grid.RowDefinitions>
+
+        <!-- Header Section -->
+        <Grid BackgroundColor="#FFD700" 
+              HeightRequest="70"
+              VerticalOptions="Start"
+              Padding="20,10"
+              ColumnDefinitions="*, Auto"
+              Grid.Row="0"> 
+            <Label Text="ถอนรายวิชาเรียน"
+                   FontSize="24"
+                   FontAttributes="Bold"
+                   TextColor="#333333"
+                   VerticalOptions="Center"
+                   HorizontalOptions="Center"
+                   Grid.Column="0"/>
+
+            <Button WidthRequest="100"
+                    HeightRequest="45"
+                    Text="กลับ"
+                    BackgroundColor="Red"
+                    TextColor="Black"
+                    CornerRadius="10"
+                    Command="{Binding BackCommand}" 
+                    HorizontalOptions="Start"/>
+        </Grid>
+
+        <!-- Main Content -->
+        <ScrollView Grid.Row="1" Padding="10"> 
+            <VerticalStackLayout Spacing="15">
+                <CollectionView ItemsSource="{Binding Students}" 
+                                SelectionMode="None">
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate x:DataType="{x:Type model:Student}">
+                            <Border Padding="15,10"
+                                    Stroke="#E0E0E0"
+                                    StrokeThickness="1"
+                                    StrokeShape="RoundRectangle 10"
+                                    BackgroundColor="White"
+                                    Margin="0,0,0,10">
+                                <Border.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodel:WithdrawViewModel}}, Path=ClickCommand}"
+                                                          CommandParameter="{Binding Sid}"/>
+                                </Border.GestureRecognizers>
+                                <VerticalStackLayout Spacing="10">
+                                    <Label Text="{Binding Name, StringFormat='Student: {0}'}" 
+                                           FontSize="18"
+                                           FontAttributes="Bold"
+                                           TextColor="#333333"/>
+
+                                    <CollectionView ItemsSource="{Binding Year}" 
+                                                   SelectionMode="None">
+                                        <CollectionView.ItemTemplate>
+                                            <DataTemplate x:DataType="{x:Type model:Year}">
+                                                <Border Padding="10,5"
+                                                        BackgroundColor="#F8F9FA"
+                                                        Stroke="#E0E0E0"
+                                                        StrokeThickness="1"
+                                                        StrokeShape="RoundRectangle 8"
+                                                        Margin="0,5">
+                                                    <VerticalStackLayout Spacing="8">
+                                                        <Label Text="{Binding YearNumber, StringFormat='Year {0}'}" 
+                                                               FontAttributes="Bold" 
+                                                               FontSize="16"
+                                                               TextColor="#2C3E50"/>
+
+                                                        <CollectionView ItemsSource="{Binding CoursesYear}" 
+                                                                       SelectionMode="None">
+                                                            <CollectionView.ItemTemplate>
+                                                                <DataTemplate x:DataType="{x:Type model:CoursesYear}">
+                                                                    <VerticalStackLayout Spacing="5">
+                                                                        <!-- Term 3 Courses -->
+                                                                        <Frame CornerRadius="8"
+                                                                               Padding="10"
+                                                                               BorderColor="#D5F5E3"
+                                                                               BackgroundColor="#EAFAF1"
+                                                                               HasShadow="False">
+                                                                            <VerticalStackLayout Spacing="5">
+                                                                                <Label Text="Term 3 Courses" 
+                                                                                       FontAttributes="Italic" 
+                                                                                       FontSize="14"
+                                                                                       TextColor="#27AE60"/>
+                                                                                <FlexLayout BindableLayout.ItemsSource="{Binding RegisteredTerm3}"
+            Wrap="Wrap"
+            AlignItems="Start"
+            AlignContent="Start">
+    <BindableLayout.ItemTemplate>
+        <DataTemplate x:DataType="{x:Type model:RegisteredTerm}">
+            <Frame CornerRadius="12"
+                   Padding="8,4"
+                   Margin="0,0,5,5"
+                   BackgroundColor="#FEF9E7"
+                   BorderColor="#F4D03F">
+                <VerticalStackLayout Spacing="5">
+                    <Label Text="{Binding C_name}" 
+                           FontSize="20"
+                           TextColor="#D4AC0D"/>
+                    <Button Text="ถอนรายวิชา"
+        Command="{Binding WithdrawCommand}" 
+        CommandParameter="{Binding Cid}" 
+        BackgroundColor="Red"
+        TextColor="White"
+        CornerRadius="5"
+        WidthRequest="220"
+        HeightRequest="5"/>
+
+                </VerticalStackLayout>
+            </Frame>
+        </DataTemplate>
+    </BindableLayout.ItemTemplate>
+</FlexLayout>
+
+                                                                            </VerticalStackLayout>
+                                                                        </Frame>
+                                                                    </VerticalStackLayout>
+                                                                </DataTemplate>
+                                                            </CollectionView.ItemTemplate>
+                                                        </CollectionView>
+                                                    </VerticalStackLayout>
+                                                </Border>
+                                            </DataTemplate>
+                                        </CollectionView.ItemTemplate>
+                                    </CollectionView>
+                                </VerticalStackLayout>
+                            </Border>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+            </VerticalStackLayout>
+        </ScrollView>
+    </Grid>
 </ContentPage>

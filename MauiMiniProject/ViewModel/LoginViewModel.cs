@@ -80,6 +80,7 @@ public partial class LoginViewModel : ObservableObject
             dataService.name = user.Name;
             dataService.Sid = user.Sid;
             System.Diagnostics.Debug.WriteLine($"[DEBUG] SID เช็ค: {dataService.Sid}");
+            ClearStudentJsonOnLogout();
             await Shell.Current.GoToAsync(nameof(HomePage));
         }
         else
@@ -89,6 +90,16 @@ public partial class LoginViewModel : ObservableObject
             IsErrorVisible = true;
         }
     }
+
+    public void ClearStudentJsonOnLogout()
+{
+    string filePath = Path.Combine(FileSystem.AppDataDirectory, "student.json");
+
+    if (File.Exists(filePath))
+    {
+        File.Delete(filePath);
+    }
+}
 
 
     [RelayCommand]

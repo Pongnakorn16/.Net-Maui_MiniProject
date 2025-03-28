@@ -64,8 +64,8 @@ namespace MauiMiniProject.Model
         [JsonProperty("cid")]
         public string Cid { get; set; }
 
-        // ✅ เพิ่ม Property 'Term'
-        public int Term { get; set; }
+        [JsonProperty("c_name")]
+        public string C_name { get; set; }
     }
 
     public partial class Student

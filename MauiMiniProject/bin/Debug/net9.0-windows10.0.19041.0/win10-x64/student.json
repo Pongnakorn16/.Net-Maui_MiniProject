@@ -12,16 +12,34 @@
         "courses_year": [
           {
             "Registered_term3": [
-              { "cid": "3" },
-              { "cid": "4" }
+              { 
+                "cid": "3", 
+                "c_name": "Chemistry" 
+              },
+              { 
+                "cid": "4", 
+                "c_name": "Biology" 
+              }
             ],
             "Registered_term2": [
-              { "cid": "1" },
-              { "cid": "5" }
+              { 
+                "cid": "1", 
+                "c_name": "Mathematics" 
+              },
+              { 
+                "cid": "5", 
+                "c_name": "Computer Science" 
+              }
             ],
             "Registered_term1": [
-              { "cid": "2" },
-              { "cid": "6" }
+              { 
+                "cid": "2", 
+                "c_name": "Physics" 
+              },
+              { 
+                "cid": "6", 
+                "c_name": "English Literature" 
+              }
             ]
           }
         ]
@@ -41,35 +59,34 @@
         "courses_year": [
           {
             "Registered_term3": [
-              { "cid": "3" },
-              { "cid": "4" }
+              { 
+                "cid": "1", 
+                "c_name": "Mathematics" 
+              },
+              { 
+                "cid": "7", 
+                "c_name": "History" 
+              }
             ],
             "Registered_term2": [
-              { "cid": "1" },
-              { "cid": "5" }
+              { 
+                "cid": "2", 
+                "c_name": "Physics" 
+              },
+              { 
+                "cid": "4", 
+                "c_name": "Biology" 
+              }
             ],
             "Registered_term1": [
-              { "cid": "2" },
-              { "cid": "6" }
-            ]
-          }
-        ]
-      },
-      {
-        "year_number": "2026",
-        "courses_year": [
-          {
-            "Registered_term3": [
-              { "cid": "7" },
-              { "cid": "8" }
-            ],
-            "Registered_term2": [
-              { "cid": "9" },
-              { "cid": "10" }
-            ],
-            "Registered_term1": [
-              { "cid": "11" },
-              { "cid": "12" }
+              { 
+                "cid": "3", 
+                "c_name": "Chemistry" 
+              },
+              { 
+                "cid": "8", 
+                "c_name": "Laws" 
+              }
             ]
           }
         ]
@@ -89,16 +106,34 @@
         "courses_year": [
           {
             "Registered_term3": [
-              { "cid": "3" },
-              { "cid": "4" }
+              { 
+                "cid": "3", 
+                "c_name": "Chemistry" 
+              },
+              { 
+                "cid": "4", 
+                "c_name": "Biology" 
+              }
             ],
             "Registered_term2": [
-              { "cid": "1" },
-              { "cid": "5" }
+              { 
+                "cid": "1", 
+                "c_name": "Mathematics" 
+              },
+              { 
+                "cid": "5", 
+                "c_name": "Computer Science" 
+              }
             ],
             "Registered_term1": [
-              { "cid": "2" },
-              { "cid": "6" }
+              { 
+                "cid": "2", 
+                "c_name": "Physics" 
+              },
+              { 
+                "cid": "6", 
+                "c_name": "English Literature" 
+              }
             ]
           }
         ]
@@ -118,16 +153,34 @@
         "courses_year": [
           {
             "Registered_term3": [
-              { "cid": "3" },
-              { "cid": "4" }
+              { 
+                "cid": "3", 
+                "c_name": "Chemistry" 
+              },
+              { 
+                "cid": "4", 
+                "c_name": "Biology" 
+              }
             ],
             "Registered_term2": [
-              { "cid": "1" },
-              { "cid": "5" }
+              { 
+                "cid": "1", 
+                "c_name": "Mathematics" 
+              },
+              { 
+                "cid": "5", 
+                "c_name": "Computer Science" 
+              }
             ],
             "Registered_term1": [
-              { "cid": "2" },
-              { "cid": "6" }
+              { 
+                "cid": "2", 
+                "c_name": "Physics" 
+              },
+              { 
+                "cid": "6", 
+                "c_name": "English Literature" 
+              }
             ]
           }
         ]

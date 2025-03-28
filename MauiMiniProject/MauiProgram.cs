@@ -20,13 +20,15 @@ public static class MauiProgram
 
         // ลงทะเบียน DataService เป็น Iservice
         builder.Services.AddSingleton<Iservice, DataService>();
-        
+
         // ลงทะเบียน ViewModel
         builder.Services.AddSingleton<SearchViewModel>();
-        // ✅ ลงทะเบียน ViewModel และ Pages
-    builder.Services.AddSingleton<ViewCoursesViewModel>();  // ใช้ singleton เพื่อให้แชร์กันทั้งแอป
-    builder.Services.AddTransient<ViewCoursesPage>();  // ใช้ transient เพื่อสร้างใหม่ทุกครั้งที่เรียกใช้
+        builder.Services.AddSingleton<WithdrawViewModel>(); // ลงทะเบียน WithdrawViewModel
+        builder.Services.AddSingleton<ViewCoursesViewModel>(); // ลงทะเบียน ViewCoursesViewModel
 
+        // ลงทะเบียน Pages
+        builder.Services.AddSingleton<ViewCoursesPage>(); // ใช้ singleton เพื่อให้แชร์กันทั้งแอป
+        builder.Services.AddTransient<WithdrawCoursePage>(); // ใช้ transient เพื่อสร้างใหม่ทุกครั้งที่เรียกใช้
 
 #if DEBUG
         builder.Logging.AddDebug();

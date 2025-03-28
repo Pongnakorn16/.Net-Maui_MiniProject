@@ -7,8 +7,40 @@
              Shell.NavBarIsVisible="False"
              Title="Search Courses">
 
+    <Grid Padding="0">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="70"/> 
+            <RowDefinition Height="*"/>  
+        </Grid.RowDefinitions>
+
+        <!-- Header Section -->
+        <Grid BackgroundColor="#FFD700" 
+              HeightRequest="70"
+              VerticalOptions="Start"
+              Padding="20,10"
+              ColumnDefinitions="*, Auto"
+              Grid.Row="0"> 
+            <Label Text="ค้นหาและลงทะเบียนเรียน"
+                   FontSize="24"
+                   FontAttributes="Bold"
+                   TextColor="#333333"
+                   VerticalOptions="Center"
+                   HorizontalOptions="Center"
+                   Grid.Column="0"/>
+
+                   <Button WidthRequest="100"
+                                HeightRequest="45"
+                                Text="กลับ"
+                                BackgroundColor="Red"
+                                TextColor="Black"
+                                CornerRadius="10"
+                                Command="{Binding BackCommand}" 
+                                HorizontalOptions="Start"/>
+        </Grid>
+
+
     <!-- ห่อหุ้มเนื้อหาด้วย ScrollView -->
-    <ScrollView>
+    <ScrollView Grid.Row="1" Padding="10"> 
         <VerticalStackLayout Padding="20" Spacing="10">
 
             <!-- ช่องกรอกข้อความสำหรับค้นหา -->
@@ -54,5 +86,5 @@
 
         </VerticalStackLayout>
     </ScrollView>
-
+    </Grid>
 </ContentPage>

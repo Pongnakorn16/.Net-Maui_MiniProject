@@ -24,8 +24,26 @@
                    FontAttributes="Bold"
                    TextColor="Black"
                    VerticalOptions="Center"
-                   HorizontalOptions="Start"
+                   HorizontalOptions="Center"
                    Grid.Column="0"/>
+
+                    <Button WidthRequest="100"
+                                HeightRequest="45"
+                                Text="ออกจากระบบ"
+                                BackgroundColor="Red"
+                                TextColor="Black"
+                                CornerRadius="10"
+                                Command="{Binding LogoutCommand}" 
+                                HorizontalOptions="End"/>
+
+                                <Button WidthRequest="100"
+                                HeightRequest="45"
+                                Text="กลับ"
+                                BackgroundColor="Red"
+                                TextColor="Black"
+                                CornerRadius="10"
+                                Command="{Binding BackCommand}" 
+                                HorizontalOptions="Start"/>
         </Grid>
 
         <!-- Profile Content -->
